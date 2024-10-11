@@ -8,6 +8,8 @@ use App\Models\Role;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
+use App\Models\Classification;
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -42,5 +44,11 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('password'),
             'role_id' => Role::where('title', 'Reviewer')->first()->id
         ]);
+
+        // $classifications = ['Category A', 'Category B', 'Category C'];
+
+        // foreach ($classifications as $category) {
+        //     Classification::create(['name' => $category]);
+        // }
     }
 }
