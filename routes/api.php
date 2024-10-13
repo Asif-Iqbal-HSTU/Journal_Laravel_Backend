@@ -40,6 +40,7 @@ Route::get('/papers', [PaperController::class, 'getAllPapers']);
 Route::get('/papers/{user_id}', [PaperController::class, 'getPapersOfUser']);
 
 Route::get('/paper/{id}', [PaperController::class, 'getPaperById']);
+Route::get('/getuser', [PaperController::class, 'getuser']);
 
 
 

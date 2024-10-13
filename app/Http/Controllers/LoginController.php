@@ -37,9 +37,13 @@ class LoginController extends Controller
         }
     
         // Save user info in session
-        session()->put('curr_user', $user);
-        session()->put('user_role', $user->role->title);
-        session()->put('user_id', $user->id);
+        // session()->put('curr_user', $user);
+        // session()->put('user_role', $user->role->title);
+        // session()->put('user_id', $user->id);
+
+        \Illuminate\Support\Facades\Session::put('curr_user', $user);
+        \Illuminate\Support\Facades\Session::put('user_role', $user->role->title);
+        \Illuminate\Support\Facades\Session::put('user_id', $user->id);
     
         // Log the session data for debugging
         Log::info('Current session data:', session()->all());

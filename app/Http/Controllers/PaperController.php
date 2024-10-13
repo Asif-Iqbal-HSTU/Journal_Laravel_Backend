@@ -9,6 +9,7 @@ use App\Models\CoAuthor;
 use App\Models\Paperstatus;
 use App\Models\Classification;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Log;
 
 class PaperController extends Controller
 {    
@@ -127,6 +128,20 @@ class PaperController extends Controller
         } else {
             return response()->json(['message' => 'Paper not found'], 404);
         }
+    }
+
+    public function getuser()
+    {
+        // \Log::info('Session :): ' . session()->all());
+        Log::info('Current session data from paper controller:', session()->all());
+        $papers = Paper::all();
+
+        return response()->json(
+            [
+                'papers' => $papers,
+            ],
+            201
+        );
     }
 
 
